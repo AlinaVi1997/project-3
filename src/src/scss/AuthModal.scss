@@ -1,0 +1,74 @@
+.ReactModalPortal{
+  font-family: "Lato", sans-serif;
+}
+.Log-in-btn{
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #319FEA;
+  padding: 10px 0;
+  width: 150px;
+  cursor: pointer;
+  font-weight: 300;
+}
+.modal{
+  width: 400px;
+  height: 400px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 15%;
+  position: absolute;
+  background-color: #319FEA;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.login-title{
+  font-size: 50px;
+  text-align: center;
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.form-input{
+  width: 300px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.form-input::placeholder{
+  color:#FFFFFF;
+  opacity: .8;
+}
+
+.login-form-btn{
+  background-color: #ffffff;
+  border: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #319FEA;
+  padding: 15px 0;
+  cursor: pointer;
+  width: 305px;
+  font-weight: 700;
+}
+.bg{
+  background-color: #319FEA;
+}
+
+
+
+

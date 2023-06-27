@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import 'Header';
+@import 'Articles';
+@import 'Footer';
+@import 'Card';
+@import 'BurgerMenu';
+@import 'AuthModal';
+@import 'Swiper.css';
+
+body{
+  color: #303030;
+}
+
+.ReactModal__Overlay{
+  z-index: 2;
+}
+
+img{
+  max-width: 100%;
+}
+.container{
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+}

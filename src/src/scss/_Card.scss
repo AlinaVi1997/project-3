@@ -1,0 +1,31 @@
+.card-item{
+  background-color: #319FEA;
+  height: 250px;
+  width: 250px;
+  border-radius:20px;
+}
+
+.card-bg{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  color: #fff;
+  font-size: 25px;
+  //gap: 20px;
+  padding: 30px;
+}
+
+.card-degrees{
+  font-size: 50px;
+  font-weight: 200;
+}
+
+.icon-style {
+  font-size: 70px;
+  color: #ffffff;
+}
+
+.card-body{
+  text-align: center;
+  color: #ffffff;
+  font-weight: 200;
+}

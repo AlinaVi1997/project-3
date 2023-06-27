@@ -1,0 +1,13 @@
+.log-in-btn {
+  background-color: #319FEA;
+  border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 0;
+  width: 150px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=AuthModal.css.map */
