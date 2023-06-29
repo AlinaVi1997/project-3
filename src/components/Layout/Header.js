@@ -76,7 +76,6 @@ function Header(){
             </div>
             <h1 className='header-title'>Ua today</h1>
             <AuthModal />
-            {/*<LoginForm />*/}
           </div>
             < MainMenu {...primaryMenu}/>
         </div>

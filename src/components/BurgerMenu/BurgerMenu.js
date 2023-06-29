@@ -9,6 +9,7 @@ const BurgerMenu = (props) => {
 
 	return (
 		<div className='burger-menu-wrapper'>
+			<h1 className='burger-menu-title'>Ua</h1>
 			<nav className='burgerlist-items'>
 				<ul className='burgerlist-item'>{ listItems }</ul>
 			</nav>

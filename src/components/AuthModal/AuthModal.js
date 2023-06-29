@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import Modal from 'react-modal';
 import axios from "axios";
-import '../../src/scss/AuthModal.scss';
+import '../../src/scss/AuthModal.scss'
+import {useForm} from "react-hook-form";
 
 const AuthModal = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -13,68 +14,57 @@ const AuthModal = () => {
 	const closeModal = () => {
 		setIsOpen(false);
 	};
-
+	const { handleSubmit, register, formState: { errors} } = useForm();
 	return (
-		<div>
-			<button className='Log-in-btn' onClick={openModal}>Log in</button>
-			<Modal className='modal' isOpen={isOpen} onRequestClose={closeModal}>
-				<form className='login-form'>
-					<h2 className='login-title'>Login</h2>
-						<input className='form-input' type="email" placeholder='Email' />
-						<input className='form-input' type="password" placeholder='Password'/>
-					<button className='login-form-btn' type="submit">Login</button>
-				</form>
-			</Modal>
+<form onSubmit={handleSubmit(onsubmit)}>
+	<button className='Log-in-btn' onClick={openModal}>Log in</button>
+	<Modal className='modal' isOpen={isOpen} onRequestClose={closeModal}>
+		<div className='login-form'>
+			<h2 className='login-title'>Login</h2>
+			<div className='form-item'>
+		<input className='form-input'  placeholder='Email'
+		       type="email"
+		       {...register("email",{
+			       required:"required",
+			       pattern:{
+				       value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+				       message: "invalid email address"
+			       }
+		       })}
+		/>
+		<p className={'error-message'}>{errors.email && errors.email.message}</p>
+	</div>
+			<div className='form-item' >
+		<input className='form-input'  placeholder='Password'
+			// className={errors.password ? 'error' : ''}
+			type="password"
+			{...register("password", {
+				required: "required",
+				pattern: {
+					value: /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/,
+					message: "Password requirements: 8-20 characters, 1 number, 1 letter, 1 symbol."
+				}
+			})}
+		/>
+		<p className={'error-message'}>{errors.password && errors.password.message}</p>
+	</div>
+			<button className='login-form-btn'  type="submit">Submit</button>
 		</div>
+	</Modal>
+</form>
 	);
 };
+// 		<div>
+// 			<button className='Log-in-btn' onClick={openModal}>Log in</button>
+// 			<Modal className='modal' isOpen={isOpen} onRequestClose={closeModal}>
+// 				<form >
+// 					<h2 className='login-title'>Login</h2>
+// 						<input className='form-input' type="email" placeholder='Email' />
+// 						<input className='form-input' type="password" placeholder='Password'/>
+// 					<button className='login-form-btn' type="submit">Login</button>
+// 				</form>
+// 			</Modal>
+// 		</div>
 
 export default AuthModal;
 
-// const LoginForm = () => {
-// 	const [values, setValues] = useState({
-// 		email: "",
-// 		password: "",
-// 	});
-//
-// 	const [error, setError] = useState(undefined);
-//
-// 	const handleSubmit = async (event) => {
-// 		event.preventDefault();
-// 		try{
-// 			const response = await axios.post ("/login", values);
-// 			console.log(response.data);
-// 		}catch (error){
-// 			console.error(error);
-// 			setError("An error occurred, try again...");
-// 		}
-// 	};
-//
-// 	return(
-// 		<form onSubmit={handleSubmit}>
-// 			<div className='field'>
-// 				<label htmlFor="email"> Email</label>
-// 				<input
-// 					onChange={(e) => setValues({...values, email: e.target.value})}
-// 					value={values.email}
-// 					type="text"
-// 					name="email"
-// 				/>
-// 			</div>
-// 			<div className='field'>
-// 				<label htmlFor="password">Password</label>
-// 				<input
-// 					onChange={(e) => setValues({...values, password: e.target.value})}
-// 					value={values.password}
-// 					type="password"
-// 					name="password"
-// 				/>
-// 			</div>
-//
-// 			{error ? <p className="error"> {error}</p> : <></> }
-// 			<button type="submit">Login</button>
-// 		</form>
-// 	);
-// };
-//
-// export default LoginForm;

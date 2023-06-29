@@ -5,10 +5,13 @@
 @import 'Card';
 @import 'BurgerMenu';
 @import 'AuthModal';
-@import 'Swiper.css';
+@import 'Swiper';
+@import 'Page-404';
 
 body{
   color: #303030;
+  overflow-x: hidden;
+  background-color: #eaeaea;
 }
 
 .ReactModal__Overlay{
@@ -19,10 +22,11 @@ img{
   max-width: 100%;
 }
 .container{
-  max-width: 1170px;
+  max-width: 1270px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 15px;
   font-family: 'Lato', sans-serif;
+  background-color: #FFFFFF;
 }
 
 :active, :hover, :focus {

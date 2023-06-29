@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap");
-@import 'Swiper.css';
 .header-wrapper {
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .header-grid {
@@ -66,9 +65,6 @@ ul.list-item {
   list-style-type: none;
   gap: 50px;
 }
-ul.list-item > li {
-  margin: 0 10px;
-}
 ul.list-item > li > a {
   position: relative;
   text-decoration: none;
@@ -90,6 +86,31 @@ ul.list-item > li > a::before {
   transition: 0.2s;
 }
 
+@media (max-width: 1150px) {
+  .header-wrapper ul.list-item {
+    gap: 40px;
+  }
+}
+@media (max-width: 1055px) {
+  .header-wrapper ul.list-item {
+    gap: 30px;
+  }
+  .header-wrapper ul.list-item li > a {
+    font-size: 18px;
+  }
+}
+@media (max-width: 950px) {
+  .header-wrapper ul.list-item li > a {
+    font-size: 18px;
+  }
+}
+@media (max-width: 800px) {
+  .header-wrapper ul.list-item {
+    gap: 60px;
+    justify-content: flex-start;
+    overflow-x: hidden;
+  }
+}
 .articles-wrapper {
   padding-top: 100px;
 }
@@ -286,19 +307,38 @@ ul.list-item > li > a::before {
 
 .burger-menu-wrapper {
   background-color: #303030;
-  width: 190px;
-  height: auto;
-  padding: 30px;
+  width: 160px;
+  height: 100%;
+  padding: 30px 0 0 30px;
   position: fixed;
   z-index: 2;
-  opacity: 0.9;
   left: 0;
   top: 0;
 }
 
+.burger-menu-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #319FEA;
+  border-radius: 50%;
+  left: 30px;
+}
+
+.burger-menu-title {
+  z-index: 3;
+  color: aliceblue;
+  position: absolute;
+  font-size: 40px;
+  left: 70px;
+  text-transform: uppercase;
+  font-weight: 300;
+  top: 35px;
+}
+
 .burger-menu {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   cursor: pointer;
   gap: 7px;
 }
@@ -310,6 +350,11 @@ ul.list-item > li > a::before {
 
 .burger-menu__items {
   font-family: "Lato", sans-serif;
+}
+
+.burgerlist-items {
+  position: absolute;
+  top: 130px;
 }
 
 .burgerlist-item {
@@ -343,7 +388,7 @@ ul.list-item > li > a::before {
 
 .modal {
   width: 400px;
-  height: 400px;
+  height: 430px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -394,14 +439,58 @@ ul.list-item > li > a::before {
   cursor: pointer;
   width: 305px;
   font-weight: 700;
+  border-radius: 8px;
 }
 
 .bg {
   background-color: #319FEA;
 }
 
+.error-message {
+  max-width: 300px;
+  color: #ae1212;
+  font-size: 16px;
+  font-weight: 100;
+  padding-top: 6px;
+}
+
+.swiper-slide {
+  text-align: center;
+}
+
+.swiper-img {
+  width: 800px;
+  height: auto;
+}
+
+.page-404 {
+  text-align: center;
+}
+.page-404 .content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.page-404 .content .title-404 {
+  font-size: 50px;
+  font-weight: 400;
+}
+.page-404 .content .subtitle-404 {
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.page-404 .link-404 {
+  text-decoration: none;
+  font-size: 20px;
+}
+
 body {
   color: #303030;
+  overflow-x: hidden;
+  background-color: #eaeaea;
 }
 
 .ReactModal__Overlay {
@@ -413,10 +502,11 @@ img {
 }
 
 .container {
-  max-width: 1170px;
+  max-width: 1270px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 15px;
   font-family: "Lato", sans-serif;
+  background-color: #FFFFFF;
 }
 
 :active, :hover, :focus {

@@ -14,7 +14,7 @@
 }
 .modal{
   width: 400px;
-  height: 400px;
+  height: 430px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -64,9 +64,18 @@
   cursor: pointer;
   width: 305px;
   font-weight: 700;
+  border-radius: 8px;
 }
 .bg{
   background-color: #319FEA;
+}
+
+.error-message{
+  max-width: 300px;
+  color: #ae1212;
+  font-size: 16px;
+  font-weight: 100;
+  padding-top: 6px;
 }
 
 

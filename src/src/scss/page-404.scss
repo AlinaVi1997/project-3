@@ -1,0 +1,23 @@
+.page-404{
+  text-align: center;
+  .content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .title-404{
+      font-size: 50px;
+      font-weight: 400;
+    }
+    .subtitle-404{
+      font-size: 25px;
+      font-weight: 300;
+      line-height: 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  .link-404{
+    text-decoration: none;
+    font-size: 20px;
+  }
+}
