@@ -1,8 +1,7 @@
 import React, {useState } from 'react';
 import Modal from 'react-modal';
-import axios from "axios";
-import '../../src/scss/AuthModal.scss'
 import {useForm} from "react-hook-form";
+import '../AuthModal/AuthModal.scss';
 
 const AuthModal = () => {
 	const [isOpen, setIsOpen] = useState(false);

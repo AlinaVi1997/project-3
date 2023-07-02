@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import  "../../src/scss/_Articles.scss";
+import  "../../src/scss/articles.scss";
 
 
 const baseURL = "https://newsapi.org/v2/everything/"
@@ -59,10 +59,9 @@ const NewsList = () => {
 
 	if (error) {
 		return <div className="error">
-			<h2>{error}</h2>
+			<h2 className='erorr-text'>{error}</h2>
 		</div>;
 	} else if (articles) {
-
 		const items = articles.map((article, index) =>
 			<div key={index} className="article">
 				<Link className='article-link' to={"/news/" + index + "/" + search}><h2>{article.title}</h2></Link>

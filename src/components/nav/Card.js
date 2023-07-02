@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../src/scss/_Card.scss';
+import '../../src/scss/card.scss';
 
 class Card extends React.Component {
 	// Props: day, key(index)

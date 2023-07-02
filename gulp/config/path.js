@@ -1,4 +1,4 @@
-import * as nodePath from 'path';
+import * as nodePath from 'gulp/config/path.js';
 const rootFolder = nodePath.basename(nodePath.resolve());
 const buildFolder = './dist';
 const srcFolder = './src';

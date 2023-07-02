@@ -1,18 +1,19 @@
-.ReactModalPortal{
+.ReactModalPortal {
   font-family: "Lato", sans-serif;
 }
-.Log-in-btn{
+
+.Log-in-btn {
   background-color: transparent;
   border: none;
   font-size: 14px;
   text-transform: uppercase;
   color: #319FEA;
   padding: 10px 0;
-  width: 150px;
   cursor: pointer;
   font-weight: 300;
 }
-.modal{
+
+.modal {
   width: 400px;
   height: 430px;
   left: 0;
@@ -25,21 +26,21 @@
   color: #ffffff;
 }
 
-.login-title{
+.login-title {
   font-size: 50px;
   text-align: center;
   padding-top: 50px;
   margin-bottom: 30px;
 }
 
-.login-form{
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 30px;
   align-items: center;
 }
 
-.form-input{
+.form-input {
   width: 300px;
   height: 30px;
   background-color: transparent;
@@ -49,12 +50,13 @@
   font-weight: 300;
   text-transform: uppercase;
 }
-.form-input::placeholder{
-  color:#FFFFFF;
-  opacity: .8;
+
+.form-input::placeholder {
+  color: #FFFFFF;
+  opacity: 0.8;
 }
 
-.login-form-btn{
+.login-form-btn {
   background-color: #ffffff;
   border: none;
   font-size: 12px;
@@ -66,11 +68,12 @@
   font-weight: 700;
   border-radius: 8px;
 }
-.bg{
+
+.bg {
   background-color: #319FEA;
 }
 
-.error-message{
+.error-message {
   max-width: 300px;
   color: #ae1212;
   font-size: 16px;
@@ -78,6 +81,28 @@
   padding-top: 6px;
 }
 
+@media (max-width: 700px) {
+  .modal {
+    width: 320px;
+    height: 360px;
+  }
+  .login-form {
+    gap: 15px;
+  }
+  .login-title {
+    font-size: 40px;
+  }
+  .form-input {
+    width: 250px;
+    font-size: 12px;
+  }
+  .error-message {
+    font-size: 14px;
+    width: 255px;
+  }
+  .login-form-btn {
+    width: 260px;
+  }
+}
 
-
-
+/*# sourceMappingURL=AuthModal.css.map */

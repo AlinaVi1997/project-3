@@ -6,7 +6,8 @@ import axios from "axios";
 import BurgerMenu from "../BurgerMenu/BurgerMenu.js";
 import AuthModal from "../AuthModal/AuthModal.js";
 
-import '../../src/scss/_Header.scss';
+import '../../src/scss/header.scss';
+import ButtonSub from "../ButtonSub/ButtonSub.js";
 
 let primaryMenu = {
   links: [
@@ -69,13 +70,17 @@ function Header(){
                   <span></span>
                 </div>
                 {showMenu && <BurgerMenu {...primaryMenu} />}
+
               </div>
               <div className='icon-search'>
                 <FontAwesomeIcon icon={faSearch} />
               </div>
             </div>
-            <h1 className='header-title'>Ua today</h1>
-            <AuthModal />
+            <h1 className='header-title'>Usa today</h1>
+            <div className='header-info'>
+              <AuthModal />
+              <ButtonSub />
+            </div>
           </div>
             < MainMenu {...primaryMenu}/>
         </div>
