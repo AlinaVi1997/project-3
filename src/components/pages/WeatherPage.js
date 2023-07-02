@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../nav/Card.js';
 import '../../src/scss/Weather.Page.scss';
 
-const weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=Kiev&lang=ru&units=metric&APPID=a9a3a62789de80865407c0452e9d1c27";
+const weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=Kiev&lang=ua&units=metric&APPID=a9a3a62789de80865407c0452e9d1c27";
 
 class WeekContainer extends React.Component {
 	state = {
