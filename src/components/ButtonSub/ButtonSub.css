@@ -1,13 +1,13 @@
-.log-in-btn {
+.buttonsub {
   background-color: #319FEA;
   border: none;
   font-size: 14px;
   text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
+  color: #FFFFFF;
   padding: 10px 0;
-  width: 150px;
   cursor: pointer;
+  font-weight: 300;
+  width: 150px;
 }
 
-/*# sourceMappingURL=AuthModal.css.map */
+/*# sourceMappingURL=ButtonSub.css.map */

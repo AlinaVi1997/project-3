@@ -5,7 +5,7 @@ import NavWithTitlePartners from "../nav/NavWithTitlePartners.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import '../../src/scss/_Footer.scss';
+import '../../src/scss/footer.scss';
 
 const currentYear = new Date().getFullYear();
 

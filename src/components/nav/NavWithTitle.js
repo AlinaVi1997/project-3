@@ -9,7 +9,7 @@ const NavWithTitle = (props) => {
 	);
 
 	return (
-		<nav className='nav-items'>
+		<nav className='nav-items-social'>
 				<ul className='list'>{ listItems }</ul>
 		</nav>
 	);

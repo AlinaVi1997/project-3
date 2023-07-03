@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
-@import 'Header';
-@import 'Articles';
-@import 'Footer';
-@import 'Card';
-@import 'BurgerMenu';
-@import 'AuthModal';
-@import 'Swiper';
+@import 'header';
+@import 'articles';
+@import 'footer';
+@import 'card';
+@import 'swiper';
 @import 'Page-404';
 
+*{
+  box-sizing: border-box;
+}
 body{
   color: #303030;
   overflow-x: hidden;
-  background-color: #eaeaea;
 }
 
 .ReactModal__Overlay{
@@ -21,12 +21,12 @@ body{
 img{
   max-width: 100%;
 }
+
 .container{
   max-width: 1270px;
   margin: 0 auto;
   padding: 0 15px;
   font-family: 'Lato', sans-serif;
-  background-color: #FFFFFF;
 }
 
 :active, :hover, :focus {
