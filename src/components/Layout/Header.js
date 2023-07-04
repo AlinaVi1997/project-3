@@ -17,31 +17,31 @@ let primaryMenu = {
     },
     {
       link: "Sport",
-      path: "/sport"
+      path: "/news/sport"
     },
     {
       link: "Entertainment",
-      path: "/entertainment"
+      path: "/news/entertainment"
     },
     {
       link: "Life",
-      path: "/life"
+      path: "/news/life"
     },
     {
       link: "Money",
-      path: "/money"
+      path: "/news/money"
     },
     {
       link: "Tech",
-      path: "tech"
+      path: "/news/tech"
     },
     {
       link: "Travel",
-      path: "/travel"
+      path: "/news/travel"
     },
     {
       link: "Opinion",
-      path: "/opinion"
+      path: "/news/opinion"
     },
     {
       link: 'Weather',
