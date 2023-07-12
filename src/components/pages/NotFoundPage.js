@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import page404  from "../../src/img/error-404.svg";
+import page404  from "../../src/images/error-404.svg";
 import {Link} from "@mui/material";
 
 function NotFound() {

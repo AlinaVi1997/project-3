@@ -1,22 +1,14 @@
-.card-item{
-  background-color: #319FEA;
-  height: 250px;
-  width: 250px;
-  border-radius:20px;
-}
 
 .card-bg{
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  color: #fff;
-  font-size: 25px;
-  //gap: 20px;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px
 }
 
 .card-degrees{
   font-size: 50px;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .icon-style {
@@ -24,8 +16,24 @@
   color: #ffffff;
 }
 
-.card-body{
-  text-align: center;
-  color: #ffffff;
+.card-descr {
+  font-size: 18px;
+  font-weight: 200;
+  position: relative;
+}
+.card-descr:before{
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 2px;
+  background-color: #303030;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: -9px;
+}
+.card-day{
+  font-size: 30px;
   font-weight: 200;
 }
+

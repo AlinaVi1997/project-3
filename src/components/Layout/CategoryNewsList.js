@@ -5,14 +5,15 @@ import  "../../src/scss/articles.scss";
 
 
 const baseURL = "https://newsapi.org/v2/top-headlines/"
-const ApiKey = "fd0c5010162c4488a3638c02cf121734"
+const ApiKey = "7aaa7a00b5274fcaae8e5661fe422cd2"
 
 const CategoryNewsList = () => {
-	const [articles, setArticles] = useState();
+	const [articles, setArticles] = useState([]);
 	const [error, setError] = useState(null);
 	const [search, setSearch] = useState("");
 	const params = useParams();
 	const category = params.category;
+	console.log('category',category)
 
 
 	async function fetchData() {
@@ -45,7 +46,7 @@ const CategoryNewsList = () => {
         item.category = category;
       });
       setArticles(arr);
-      console.log('arr ', arr);
+      console.log('arr2', arr);
       localStorage.setItem('articles', JSON.stringify(arr));
     }).catch(error => {
       setError(error.response.data.message);
@@ -53,12 +54,15 @@ const CategoryNewsList = () => {
 	}
 
 	useEffect(() => {
+		console.log('useEffect')
 		fetchData()
-	}, [articles]);
+	}, []);
+
 
 	category ? document.title = 'News | ' + category : document.title = 'News';
 
 	const handleSubmit = e => {
+		console.log('handleSubmit')
 		e.preventDefault()
 		fetchData()
 	}
@@ -69,7 +73,7 @@ const CategoryNewsList = () => {
 		</div>;
 	} else if (articles) {
 		const items = articles.map((article, index) =>
-			<div key={index} className="article">
+			<div key={index} className="article nth-child">
 				<Link className='article-link' to={"/news/" + index + "/" + search}><h2>{article.title}</h2></Link>
 				{/*<h2>{article.title}</h2>*/}
 				<p className='article-description'>{article.description}</p>

@@ -4,7 +4,6 @@ import AuthModal from "../AuthModal/AuthModal.js";
 import '../BurgerMenu/BurgerMenu.scss';
 
 const BurgerMenu = (props) => {
-
 	const listItems = props.links.map((item, index) =>
 		<li key={index}>
 			<NavLink to={ item.path }>{ item.link }</NavLink>
@@ -13,14 +12,19 @@ const BurgerMenu = (props) => {
 
 	return (
 		<div className='burger-menu-wrapper'>
-			<h1 className='burger-menu-title'>Ua</h1>
+			<div className='burger-menu-overlay'></div>
+			<h1 className='burger-menu-title'>Usa</h1>
 			<nav className='burgerlist-items'>
-				<ul className='burgerlist-item'>{ listItems }
+				<ul className='burgerlist-item'>
+					{ listItems }
+					<li>
+						<a href='#'>Subscribe now</a>
+					</li>
 					<ButtonSub />
 					<AuthModal />
 				</ul>
 			</nav>
-		</div>
+			</div>
 	);
 }
 

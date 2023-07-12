@@ -1,16 +1,37 @@
+.menu-btn {
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.button {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.app-menu {
+  height: 100vh;
+  width: 20rem;
+  background-color: #292929;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: 0.3s;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.menu-open {
+  transform: translateX(0%);
+}
+
 .burger-inner {
   opacity: 0;
 }
 
 .burger-menu-wrapper {
-  background-color: #303030;
-  width: 200px;
-  height: 100%;
   padding: 30px 0 0 30px;
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  top: 0;
 }
 
 .burger-menu-wrapper::before {
@@ -73,17 +94,10 @@
   color: inherit;
 }
 
-.burger-menu-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
 @media (max-width: 800px) {
   .burger-inner {
     opacity: 1;
   }
 }
 
-/*# sourceMappingURL=BurgerMenu.css.map */
+/*# sourceMappingURL=Menu.css.map */

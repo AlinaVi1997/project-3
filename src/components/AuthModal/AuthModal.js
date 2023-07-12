@@ -53,17 +53,5 @@ const AuthModal = () => {
 </form>
 	);
 };
-// 		<div>
-// 			<button className='Log-in-btn' onClick={openModal}>Log in</button>
-// 			<Modal className='modal' isOpen={isOpen} onRequestClose={closeModal}>
-// 				<form >
-// 					<h2 className='login-title'>Login</h2>
-// 						<input className='form-input' type="email" placeholder='Email' />
-// 						<input className='form-input' type="password" placeholder='Password'/>
-// 					<button className='login-form-btn' type="submit">Login</button>
-// 				</form>
-// 			</Modal>
-// 		</div>
-
 export default AuthModal;
 

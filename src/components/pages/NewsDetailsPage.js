@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const baseURL = "https://newsapi.org/v2/everything"
-const ApiKey = "fd0c5010162c4488a3638c02cf121734"
+const ApiKey = "7aaa7a00b5274fcaae8e5661fe422cd2"
 
 const NewsDetailsPage = () => {
   const params = useParams();
@@ -35,11 +35,11 @@ const NewsDetailsPage = () => {
   if (!articles) return null;
 
   return (
-      <div className="single-news">
-        <img src={articles[id].urlToImage} alt={articles[id].source.name}/>
-        <h2>{articles[id].title}</h2>
-        <p>{articles[id].content}</p>
-      </div>
+    <div className="single-news">
+      <h2 className='single-news-title'>{articles[id].title}</h2>
+      <img className='single-news-img' src={articles[id].urlToImage} alt={articles[id].source.name}/>
+      <p className='single-news-info'>{articles[id].content}</p>
+    </div>
   )
 };
 

@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 @import 'header';
 @import 'articles';
 @import 'footer';
 @import 'card';
-@import 'swiper';
 @import 'Page-404';
+@import 'fonts';
+
 
 *{
   box-sizing: border-box;
@@ -15,7 +15,7 @@ body{
 }
 
 .ReactModal__Overlay{
-  z-index: 2;
+  z-index: 99999;
 }
 
 img{

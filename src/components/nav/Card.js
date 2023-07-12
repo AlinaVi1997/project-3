@@ -16,12 +16,10 @@ class Card extends React.Component {
 		return (
 			<div className="card-item">
 				<div className="card-bg">
-					<h3 className="card-title">{weekdayName}</h3>
 					<i className={imgURL}></i>
 					<h2 className='card-degrees'>{Math.round(this.props.day.main.temp)} °C</h2>
-				</div>
-				<div className="card-body">
-					<div className="card-descr">{this.props.day.weather[0].description}</div>
+						<div className="card-descr">{this.props.day.weather[0].description}</div>
+						<h3 className="card-day">{weekdayName}</h3>
 				</div>
 			</div>
 		)

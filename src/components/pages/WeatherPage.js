@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from '../nav/Card.js';
+import weather from '../../src/images/weather-bg-2.jpg';
 import '../../src/scss/Weather.Page.scss';
 
-const weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=Kiev&lang=ua&units=metric&APPID=a9a3a62789de80865407c0452e9d1c27";
+const weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=Kiev&lang=en&units=metric&APPID=a9a3a62789de80865407c0452e9d1c27";
 
 class WeekContainer extends React.Component {
 	state = {
@@ -23,15 +24,18 @@ class WeekContainer extends React.Component {
 	}
 		render(){
 		return (
-			<div className="content-grid ">
-				<h1 className="weather-title">Weather forecast</h1>
-				<h5 className="weather-city">Kyiv</h5>
-				<div className="weather-items items-cards">
 
-					{this.formatCards()}
-
+			<div className="content-bg">
+				<div className="content-wrapper">
+					<img className="blur-image" src={weather} alt="images" />
+					<div className="content-grid ">
+						<h5 className="weather-city">Kyiv</h5>
+						<div className="weather-items items-cards">
+						{this.formatCards()}
+						</div>
 				</div>
 			</div>
+		</div>
 		)
 	}
 }
