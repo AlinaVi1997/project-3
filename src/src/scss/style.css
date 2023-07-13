@@ -54,6 +54,7 @@
   display: flex;
   gap: 30px;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .list-items {
@@ -177,6 +178,10 @@ ul.list-item > li > a::before {
 
 .article {
   width: 500px;
+}
+
+.article:nth-child(2n) h2 {
+  color: #0a91ff;
 }
 
 .search-news {
@@ -455,7 +460,7 @@ ul.list-item > li > a::before {
   position: absolute;
   width: 70px;
   height: 2px;
-  background-color: #303030;
+  background-color: rgba(255, 255, 255, 0.36);
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -535,7 +540,8 @@ body {
   overflow-x: hidden;
 }
 
-.ReactModal__Overlay {
+.ReactModalPortal .ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.84) !important;
   z-index: 99999;
 }
 

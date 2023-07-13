@@ -11,22 +11,21 @@
   position: absolute;
   inset: 0;
   color: white;
+  top: 23%;
 }
 
 .blur-image {
-  filter: blur(5px);
+  filter: blur(3px);
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: black;
 }
 
 .weather-city {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-align: center;
-  padding-top: 30px;
 }
 
 .weather-items {

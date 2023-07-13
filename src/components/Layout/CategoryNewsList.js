@@ -73,7 +73,7 @@ const CategoryNewsList = () => {
 		</div>;
 	} else if (articles) {
 		const items = articles.map((article, index) =>
-			<div key={index} className="article nth-child">
+			<div key={index} className="article">
 				<Link className='article-link' to={"/news/" + index + "/" + search}><h2>{article.title}</h2></Link>
 				{/*<h2>{article.title}</h2>*/}
 				<p className='article-description'>{article.description}</p>

@@ -4,10 +4,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import AuthModal from "../AuthModal/AuthModal.js";
 import '../../src/scss/header.scss';
 import ButtonSub from "../ButtonSub/ButtonSub.js";
-import { Menu } from "../Menu/Menu.tsx";
-import { ReactDimmer } from "react-dimmer";
 import MainMenu  from "../nav/MainMenu.js";
+import BurgerMenu from "../BurgerMenu/BurgerMenu.js";
 
+import Modal from 'react-modal';
 
 let primaryMenu = {
   links: [
@@ -31,11 +31,17 @@ let primaryMenu = {
 };
 
 function Header(){
-  const [isMenuOpen, setMenu] = useState(false);
-  const handleMenu = () => {
-    setMenu((prevState) => !prevState);
+  const [showMenu, setShowMenu] = useState(false);
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+  const openModal = () => {
+    setShowMenu(true);
   };
 
+  const closeModal = () => {
+    setShowMenu(false);
+  };
   return (
     <header>
       <div className=" container">
@@ -43,20 +49,19 @@ function Header(){
           <div className='header-grid'>
             <div className='header-nav'>
               <div className='burger-inner'>
-              <div className="burger-menu" onClick={handleMenu}>
-                <span></span>
-                <span></span>
-                <span></span>
+                <div className='burger-menu' onClick={openModal}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <Modal className='burger-modal' isOpen={showMenu} onRequestClose={closeModal}>
+                <div
+                className={ setShowMenu? 'burger-menu active': 'burger-menu'}
+                onClick={toggleMenu}>
               </div>
-                <Menu isMenuOpen={isMenuOpen}  />
-                {/*{<BurgerMenu{...primaryMenu} />}*/}
+              {showMenu && <BurgerMenu {...primaryMenu} />}
+                </Modal>
               </div>
-              <ReactDimmer
-                isOpen={isMenuOpen}
-                exitDimmer={setMenu}
-                zIndex={100}
-                blur={1.5}
-              />
               <div className='icon-search'>
                 <FontAwesomeIcon icon={faSearch} />
               </div>

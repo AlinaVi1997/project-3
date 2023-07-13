@@ -15,6 +15,11 @@
 .article {
   width: 500px;
 }
+.article:nth-child(2n){
+  h2{
+    color: #0a91ff;
+  }
+}
 
 .search-news{
   margin-bottom: 50px;

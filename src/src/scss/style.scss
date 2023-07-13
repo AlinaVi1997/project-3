@@ -14,7 +14,8 @@ body{
   overflow-x: hidden;
 }
 
-.ReactModal__Overlay{
+.ReactModalPortal .ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.84) !important;
   z-index: 99999;
 }
 

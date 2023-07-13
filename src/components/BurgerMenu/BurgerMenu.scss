@@ -1,15 +1,16 @@
 .burger-inner{
-  opacity: 0;
+  display: none;
 }
 .burger-menu-wrapper{
   background-color: #303030;
-  width: 200px;
+  width: 300px;
   height: 100%;
   padding: 30px 0 0 30px;
   position: fixed;
   z-index: 2;
   left: 0;
   top: 0;
+  transition: 0.3s;
 }
 .burger-menu-wrapper::before{
   content: "";
@@ -64,16 +65,8 @@
   color:inherit;
 }
 
-
-.burger-menu-overlay{
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background-color: rgba(#000,0.8);
-}
-
 @media(max-width:800px) {
   .burger-inner {
-    opacity: 1;
+   display: block;
   }
 }

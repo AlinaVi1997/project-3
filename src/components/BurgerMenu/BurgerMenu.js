@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import ButtonSub from "../ButtonSub/ButtonSub.js";
 import AuthModal from "../AuthModal/AuthModal.js";
 import '../BurgerMenu/BurgerMenu.scss';
 
@@ -12,7 +11,6 @@ const BurgerMenu = (props) => {
 
 	return (
 		<div className='burger-menu-wrapper'>
-			<div className='burger-menu-overlay'></div>
 			<h1 className='burger-menu-title'>Usa</h1>
 			<nav className='burgerlist-items'>
 				<ul className='burgerlist-item'>
@@ -20,7 +18,6 @@ const BurgerMenu = (props) => {
 					<li>
 						<a href='#'>Subscribe now</a>
 					</li>
-					<ButtonSub />
 					<AuthModal />
 				</ul>
 			</nav>

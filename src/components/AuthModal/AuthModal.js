@@ -16,11 +16,13 @@ const AuthModal = () => {
 	const { handleSubmit, register, formState: { errors} } = useForm();
 	return (
 <form onSubmit={handleSubmit(onsubmit)}>
-	<button className='Log-in-btn' onClick={openModal}>Log in</button>
+	<button className='Log-in-btn' onClick={openModal}>Sign up</button>
 	<Modal className='modal' isOpen={isOpen} onRequestClose={closeModal}>
 		<div className='login-form'>
-			<h2 className='login-title'>Login</h2>
+			<h2 className='login-title'>Create Account</h2>
 			<div className='form-item'>
+				<label>
+					Email
 		<input className='form-input'  placeholder='Email'
 		       type="email"
 		       {...register("email",{
@@ -31,9 +33,12 @@ const AuthModal = () => {
 			       }
 		       })}
 		/>
+				</label>
 		<p className={'error-message'}>{errors.email && errors.email.message}</p>
 	</div>
 			<div className='form-item' >
+				<label>
+					Password
 		<input className='form-input'  placeholder='Password'
 			// className={errors.password ? 'error' : ''}
 			type="password"
@@ -45,9 +50,17 @@ const AuthModal = () => {
 				}
 			})}
 		/>
+				</label>
 		<p className={'error-message'}>{errors.password && errors.password.message}</p>
 	</div>
-			<button className='login-form-btn'  type="submit">Submit</button>
+			<div className='checkbox'>
+				<input type={"checkbox"} id='ch1'/>
+				<label className='checkbox-label' for={"ch1"}>By Signing Up I agree with Term & Conditions</label>
+			</div>
+			<div className='buttons'>
+			<button className='login-form-btn'  type="submit">Sign up</button>
+			<button className='login-form-btn'  type="submit">Sign in</button>
+			</div>
 		</div>
 	</Modal>
 </form>
