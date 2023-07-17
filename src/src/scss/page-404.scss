@@ -1,5 +1,6 @@
 .page-404{
   text-align: center;
+  padding: 100px 0 100px 0;
   .content{
     display: flex;
     flex-direction: column;
@@ -19,5 +20,27 @@
   .link-404{
     text-decoration: none;
     font-size: 20px;
+  }
+}
+
+@media(max-width: 800px){
+  .page-404 .content .title-404{
+    font-size: 40px;
+  }
+  .page-404 .content .subtitle-404{
+    font-size: 22px;
+  }
+}
+
+@media(max-width: 600px){
+  .page-404 .content .title-404{
+    font-size: 35px;
+  }
+  .page-404 .content .subtitle-404{
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .page-404 .content{
+    gap:20px;
   }
 }

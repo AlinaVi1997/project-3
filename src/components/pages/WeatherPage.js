@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../nav/Card.js';
-import weather from '../../src/images/weather-bg-2.jpg';
+import weather from '../../src/images/weather.jpg';
 import '../../src/scss/Weather.Page.scss';
 
 const weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=Kiev&lang=en&units=metric&APPID=a9a3a62789de80865407c0452e9d1c27";
@@ -9,7 +9,6 @@ class WeekContainer extends React.Component {
 	state = {
 		days: []
 	}
-
 	componentDidMount = () => {
 		fetch(weatherURL)
 			.then(res => res.json())

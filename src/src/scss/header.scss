@@ -6,7 +6,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  margin-bottom: 30px;
 }
 .header-nav{
   display: flex;
@@ -57,8 +56,9 @@
 }
 
 .list-items{
-  border-bottom: 2px solid #319FEA;
-  border-top: 2px solid #319FEA;
+  margin-top: 30px;
+  border-bottom: 1px solid #319FEA;
+  border-top: 1px solid #319FEA;
   padding: 20px 0;
 }
 
@@ -97,7 +97,6 @@ ul.list-item {
   }
 }
 
-
 @media(max-width:1150px) {
   .header-wrapper{
     ul.list-item{
@@ -105,12 +104,21 @@ ul.list-item {
     }
   }
 }
-
-
-
+@media(max-width: 1057px){
+  .header-title:before {
+    left: 36px;
+    right: -1px;
+    top: 13px;
+    width: 12px;
+    height: 12px;
+  }
+}
 
 @media(max-width:1055px) {
   .header-wrapper{
+    .header-title{
+      font-size: 40px;
+    }
     ul.list-item{
       gap: 30px;
       li>a{
@@ -119,7 +127,6 @@ ul.list-item {
     }
   }
 }
-
 
 @media(max-width:950px) {
   .header-wrapper{
@@ -131,8 +138,19 @@ ul.list-item {
   }
 }
 @media(max-width:895px) {
+  .header-title:before {
+    width: 12px;
+    height: 12px;
+    left: 36px;
+    top: 14px;
+  }
+  .header-info {
+    gap: 20px;
+  }
+}
+@media(max-width:860px) {
   .header-title{
-    font-size: 45px;
+  font-size: 35px;
   }
   .header-title:before {
     width: 12px;
@@ -141,45 +159,31 @@ ul.list-item {
     top: 14px;
   }
 }
-@media(max-width:860px) {
-  .header-title{
-  font-size: 40px;
-  }
-  .header-title:before {
-    width: 12px;
-    height: 12px;
-    left: 28px;
-    top: 15px;
-  }
-}
 
-@media(max-width:800px) {
-  .header-wrapper{
-    .header-grid{
+@media(max-width:850px) {
+  .header-wrapper {
+    .header-grid {
       grid-template-columns: 1fr 1fr;
     }
-    //.header-title{
-    //  display: flex;
-    //  justify-content: flex-end;
-    //}
-    //.header-title:before {
-    //  width: 12px;
-    //  height: 12px;
-    //  left: 188px;
-    //  top: 15px;
-    //}
-    .header-nav{
+
+    .header-nav {
       display: flex;
       gap: 50px;
     }
-    .list-items{
-    display: none;
-    }
-  .header-info{
-    display: none;
-  }
-}
 
+    .list-items {
+      display: none;
+    }
+
+    .header-info {
+      display: none;
+    }
+  }
+  @media (max-width: 500px){
+    .header-wrapper .header-grid {
+      grid-template-columns: auto 1fr;
+    }
+  }
 @media(max-width: 480px){
   .header-title{
     font-size: 30px;
@@ -187,8 +191,8 @@ ul.list-item {
   .header-title:before {
     width: 10px;
     height: 10px;
-    left: 21px;
-    top: 11px;
+    left: 35px;
+    top: 14px;
     }
   }
   .header-nav {

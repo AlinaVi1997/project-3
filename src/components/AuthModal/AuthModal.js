@@ -59,7 +59,9 @@ const AuthModal = () => {
 			</div>
 			<div className='buttons'>
 			<button className='login-form-btn'  type="submit">Sign up</button>
-			<button className='login-form-btn'  type="submit">Sign in</button>
+			<div className='btn-sign-in'>
+				<a href='#'> Sign in </a>
+			</div>
 			</div>
 		</div>
 	</Modal>

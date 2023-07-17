@@ -37,3 +37,33 @@
   font-weight: 200;
 }
 
+
+@media(max-width: 950px) {
+  .card-bg {
+    gap: 17px;
+  }
+  .weather-city {
+    font-size: 45px;
+  }
+  .card-degrees {
+    font-size: 45px;
+  }
+  .card-day{
+    font-size: 25px;
+  }
+}
+
+@media(max-width: 750px) {
+  .card-bg {
+    gap: 17px;
+  }
+  .weather-city {
+    font-size: 45px;
+  }
+  .card-degrees {
+    font-size: 45px;
+  }
+  .card-day{
+    font-size: 25px;
+  }
+}

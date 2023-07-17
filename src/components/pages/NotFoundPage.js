@@ -7,7 +7,7 @@ function NotFound() {
         document.title = '404'
     }, []);
     return (
-        <div className='page-404 container'>
+        <div className='page-404'>
             <img src={page404} alt="404"/>
             <div className='content'>
                 <h1 className='title-404'>

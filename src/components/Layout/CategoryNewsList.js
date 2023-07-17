@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import  "../../src/scss/articles.scss";
+import noImage from "../../src/images/no images.svg";
 
 
 const baseURL = "https://newsapi.org/v2/top-headlines/"
-const ApiKey = "7aaa7a00b5274fcaae8e5661fe422cd2"
+const ApiKey = "c0644f4a38d04c39b33c5705968cf9fa"
 
 const CategoryNewsList = () => {
 	const [articles, setArticles] = useState([]);
@@ -14,6 +15,7 @@ const CategoryNewsList = () => {
 	const params = useParams();
 	const category = params.category;
 	console.log('category',category)
+
 
 
 	async function fetchData() {
@@ -26,6 +28,7 @@ const CategoryNewsList = () => {
 		}).then(response => {
       const arr = response.data.articles;
       arr.forEach((item, index) => {
+	      item.urlToImage = item.urlToImage || noImage;
         let category;
         if (index < 10) {
           category = {
@@ -67,6 +70,9 @@ const CategoryNewsList = () => {
 		fetchData()
 	}
 
+	const errorHandler = article => {
+		article.urlToImage = 'https://i.pinimg.com/564x/83/e3/6a/83e36a467c2f45e47df6861b898a7461.jpg'
+	}
 	if (error) {
 		return <div className="error">
 			<h2 className='erorr-text'>{error}</h2>
@@ -81,11 +87,14 @@ const CategoryNewsList = () => {
 					<div className='article-date'>{article.publishedAt}</div>
 					<div className='article-author'>{article.author}</div>
 				</div>
-				<img src={article.urlToImage} alt={article.source.name}/>
+				<img  className='article-img img-non' alt= {article.source.name}
+				      src= {article.urlToImage}
+				/>
 			</div>
 		);
 		return (
 			<div className='articles-wrapper'>
+				<div className="top"> Top headlines</div>
 				<form className='search-news' onSubmit={handleSubmit}>
 					<label className="search-label">
 						<input className='search-input'

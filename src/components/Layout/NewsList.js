@@ -3,22 +3,28 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { addDays } from 'date-fns';
 import noImage from "../../src/images/no images.svg";
+import Pagination from '@mui/material/Pagination/Pagination.js';
+import Stack from '@mui/material/Stack/Stack.js';
 import  "../../src/scss/articles.scss";
+
 
 // https://newsapi.org/v2/everything?q=apple&from=2023-07-04&to=2023-07-04&sortBy=popularity&apiKey=c0644f4a38d04c39b33c5705968cf9fa
 const baseURL = "https://newsapi.org/v2/everything"
-const ApiKey = "7aaa7a00b5274fcaae8e5661fe422cd2"
+const ApiKey = "c0644f4a38d04c39b33c5705968cf9fa"
 
 const NewsList = () => {
 	const [articles, setArticles] = useState();
 	const [error, setError] = useState(null);
 	const [search, setSearch] = useState("Popular");
+	const [page, setPage] = useState(1);
+	const [total_pages, setTotalPages] = useState(10);
 
-	async function fetchData() {
+	async function fetchData(currentPage) {
 		axios.get(baseURL, {
 			params: {
 				q: search,
 				apiKey: ApiKey,
+				page:currentPage,
 				from: addDays(new Date(),-2),
 				to:new Date(),
 				sortBy:'popularity',
@@ -49,20 +55,25 @@ const NewsList = () => {
       setArticles(arr);
       console.log('arr1 ', arr);
       localStorage.setItem('articles', JSON.stringify(arr));
-    }).catch(error => {
+    })
+			.catch(error => {
       setError(error.response.data.message);
     })
 	}
 
+
 	useEffect(() => {
-		fetchData()
+		fetchData(page)
 	}, []);
 
 	const handleSubmit = e => {
 		e.preventDefault()
 		fetchData()
 	}
-
+	const handleChange = (event, value) => {
+		setPage(value);
+		fetchData(value);
+	};
 	const errorHandler = article => {
 		article.urlToImage = 'https://i.guim.co.uk/img/media/08d85aba77b4ad2ae14c2feb8449ba6783c0b425/0_0_3670_2201/master/3670.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b64b76c80422b2c3fd914316495dea46'
 	}
@@ -80,13 +91,14 @@ const NewsList = () => {
 					<div className='article-date'>{article.publishedAt}</div>
 					<div className='article-author'>{article.author}</div>
 				</div>
-				<img  className='' alt= {article.source.name}
+				<img  className='article-img' alt= {article.source.name}
 				     src= {article.urlToImage}
 				/>
 			</div>
 		);
 		return (
 			<div className='articles-wrapper'>
+				<div className="top"> Top headlines</div>
 				<form className='search-news' onSubmit={handleSubmit}>
 					<label className="search-label">
 						<input className='search-input'
@@ -99,6 +111,9 @@ const NewsList = () => {
 				</form>
 				<h1 className='search-name'>{search}</h1>
 				<div className="articles">{items}</div>
+				<Stack spacing={22}>
+					<Pagination count={total_pages} page={page} onChange={handleChange} />
+				</Stack>
 			</div>
 		);
 	}
