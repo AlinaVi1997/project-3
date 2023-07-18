@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import NewsList from "../Layout/NewsList.js";
+import NewsList from "../Layout/NewsList";
 function News() {
     useEffect(() => {
         document.title = 'News'

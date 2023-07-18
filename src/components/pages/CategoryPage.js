@@ -1,4 +1,4 @@
-import CategoryNewsList from "../Layout/CategoryNewsList.js";
+import CategoryNewsList from "../Layout/CategoryNewsList";
 
 function CategoryPage() {
   return (

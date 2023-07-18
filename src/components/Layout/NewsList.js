@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { addDays } from 'date-fns';
 import noImage from "../../src/images/no images.svg";
-import Pagination from '@mui/material/Pagination/Pagination.js';
-import Stack from '@mui/material/Stack/Stack.js';
+import Pagination from '@mui/material/Pagination/Pagination';
+import Stack from '@mui/material/Stack/Stack';
 import  "../../src/scss/articles.scss";
 
 

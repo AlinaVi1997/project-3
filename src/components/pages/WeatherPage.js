@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../nav/Card.js';
+import Card from '../nav/Card';
 import weather from '../../src/images/weather.jpg';
 import '../../src/scss/Weather.Page.scss';
 

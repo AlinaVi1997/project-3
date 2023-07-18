@@ -1,7 +1,7 @@
-import NavWithTitle from "../nav/NavWithTitle.js";
-import NavWithTitleAbout from "../nav/NavWithTitleAbout.js";
-import NavWithTitleSupport from "../nav/NavWhithTitleSupport.js";
-import NavWithTitlePartners from "../nav/NavWithTitlePartners.js";
+import NavWithTitle from "../nav/NavWithTitle";
+import NavWithTitleAbout from "../nav/NavWithTitleAbout";
+import NavWithTitleSupport from "../nav/NavWhithTitleSupport";
+import NavWithTitlePartners from "../nav/NavWithTitlePartners";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
