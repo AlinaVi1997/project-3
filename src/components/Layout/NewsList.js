@@ -7,8 +7,6 @@ import Pagination from '@mui/material/Pagination/Pagination';
 import Stack from '@mui/material/Stack/Stack';
 import  "../../src/scss/articles.scss";
 
-
-// https://newsapi.org/v2/everything?q=apple&from=2023-07-04&to=2023-07-04&sortBy=popularity&apiKey=c0644f4a38d04c39b33c5705968cf9fa
 const baseURL = "https://newsapi.org/v2/everything"
 const ApiKey = "c0644f4a38d04c39b33c5705968cf9fa"
 
@@ -18,6 +16,7 @@ const NewsList = () => {
 	const [search, setSearch] = useState("Popular");
 	const [page, setPage] = useState(1);
 	const [total_pages, setTotalPages] = useState(10);
+	const [top_headlines, setTopHeadlines] = useState([]);
 
 	async function fetchData(currentPage) {
 		axios.get(baseURL, {
@@ -53,7 +52,6 @@ const NewsList = () => {
         item.category = category;
       });
       setArticles(arr);
-      console.log('arr1 ', arr);
       localStorage.setItem('articles', JSON.stringify(arr));
     })
 			.catch(error => {
@@ -82,23 +80,51 @@ const NewsList = () => {
 			<p className='erorr-text'>{error}</p>
 		</div>;
 	} else if (articles) {
-		const items = articles.map((article, index) =>
-			<div key={index} className="article">
-				<Link className='article-link' to={"/news/" + index + "/" + search}><h2>{article.title}</h2></Link>
-				{/*<h2>{article.title}</h2>*/}
-				<p className='article-description'>{article.description}</p>
-				<div className='article-info'>
-					<div className='article-date'>{article.publishedAt}</div>
-					<div className='article-author'>{article.author}</div>
-				</div>
-				<img  className='article-img' alt= {article.source.name}
-				     src= {article.urlToImage}
-				/>
-			</div>
-		);
+		const items = articles.map((article, index) => {
+			if (index > 9) {
+				return (
+						<div key={index} className="article">
+							<Link className='article-link' to={"/news/" + index + "/" + search}>{article.title}</Link>
+							<p>{article.description}</p>
+							<div className='article-info'>
+								<div className='article-date'>{article.publishedAt}</div>
+								<div className='article-author'>{article.author}</div>
+							</div>
+							<img alt= {article.source.name} src= {article.urlToImage}/>
+						</div>
+				)
+			}
+		});
+		const top_items = articles.map((article, index) => {
+			if (index < 4) {
+				return (
+						<div key={index} className="article">
+							<Link className='article-link' to={"/news/" + index + "/" + search}>{article.title}</Link>
+							<div className='article-info'>
+								<div className='article-date'>{article.publishedAt}</div>
+								<div className='article-author'>{article.author}</div>
+							</div>
+						</div>
+				)
+			}
+		});
+		const header_items = articles.map((article, index) => {
+			if (index > 4 && index < 9 ) {
+				return (
+						<div key={index} className="article">
+							<Link className='article-link' to={"/news/" + index + "/" + search}>{article.title}</Link>
+							<p className='article-description'>{article.description}</p>
+							<div className='article-info'>
+								<div className='article-date'>{article.publishedAt}</div>
+								<div className='article-author'>{article.author}</div>
+							</div>
+							<img alt= {article.source.name} src= {article.urlToImage}/>
+						</div>
+				)
+			}
+		});
 		return (
 			<div className='articles-wrapper'>
-				<div className="top"> Top headlines</div>
 				<form className='search-news' onSubmit={handleSubmit}>
 					<label className="search-label">
 						<input className='search-input'
@@ -110,10 +136,19 @@ const NewsList = () => {
 					<input className='search-btn' type="submit" value="Search"/>
 				</form>
 				<h1 className='search-name'>{search}</h1>
-				<div className="articles">{items}</div>
-				<Stack spacing={22}>
-					<Pagination count={total_pages} page={page} onChange={handleChange} />
-				</Stack>
+				<div className="articles">
+					<div className='header'>{header_items}</div>
+					<div className='top'>
+						<h2 className='title'>Top headlines</h2>
+						{top_items}
+					</div>
+					<div className='list'>{items}</div>
+				</div>
+				<div className='pagination' >
+					<Stack spacing={22}>
+						<Pagination count={total_pages} page={page} onChange={handleChange} />
+					</Stack>
+				</div>
 			</div>
 		);
 	}
