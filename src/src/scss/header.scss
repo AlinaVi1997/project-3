@@ -1,18 +1,37 @@
 .header-wrapper {
   padding-top: 30px;
-}
-
-.header-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-}
-.header-nav{
-  display: flex;
-}
-
-.icon-search{
-  font-size: 20px;
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    .header-nav {
+      display: flex;
+      button.MuiButtonBase-root {
+        opacity: 0;
+      }
+    }
+    .header-title {
+      text-decoration: unset;
+      color: black;
+      text-align: center;
+      font-size: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #319FEA;
+        border-radius: 50%;
+        left: 45px;
+        right: -1px;
+        margin: 0 auto;
+        top: 17px;
+      }
+    }
+  }
 }
 
 .subscribe-btn{
@@ -27,26 +46,6 @@
   cursor: pointer;
 }
 
-.header-title {
-  text-align: center;
-  font-size: 50px;
-  font-weight: 600;
-  text-transform: uppercase;
-  position: relative;
-}
-
-.header-title:before {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background-color: #319FEA;
-  border-radius: 50%;
-  left: 45px;
-  right: -1px;
-  margin: 0 auto;
-  top: 17px;
-}
 
 .header-info{
   display: flex;
@@ -164,11 +163,13 @@ ul.list-item {
   .header-wrapper {
     .header-grid {
       grid-template-columns: 1fr 1fr;
-    }
-
-    .header-nav {
-      display: flex;
-      gap: 50px;
+      .header-nav {
+        display: flex;
+        gap: 50px;
+        button.MuiButtonBase-root {
+          opacity: 1;
+        }
+      }
     }
 
     .list-items {

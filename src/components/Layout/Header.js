@@ -1,12 +1,10 @@
 import React from 'react';
 import BurgerMenu from "../BurgerMenu/BurgerMenu.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import AuthModal from "../AuthModal/AuthModal";
 import '../../src/scss/header.scss';
 import ButtonSub from "../ButtonSub/ButtonSub";
 import MainMenu  from "../nav/MainMenu";
-
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -77,11 +75,8 @@ function Header(){
                   <BurgerMenu {...primaryMenu} />
                 </Box>
               </Modal>
-              <div className='icon-search'>
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
             </div>
-            <h1 className='header-title'>Usa today</h1>
+            <Link to='/' className='header-title'>Usa today</Link>
             <div className='header-info'>
               <AuthModal />
               <ButtonSub />
