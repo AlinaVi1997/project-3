@@ -3,10 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import  "../../src/scss/articles.scss";
 import noImage from "../../src/images/no images.svg";
-
-
 const baseURL = "https://newsapi.org/v2/top-headlines/"
-const ApiKey = "c0644f4a38d04c39b33c5705968cf9fa"
+const ApiKey = "7b63627fe49f41aa8bf1ac1fc44d9a52"
 
 const CategoryNewsList = () => {
 	const [articles, setArticles] = useState([]);
@@ -14,16 +12,12 @@ const CategoryNewsList = () => {
 	const [search, setSearch] = useState("");
 	const params = useParams();
 	const category = params.category;
-	console.log('category',category)
-
-
-
 	async function fetchData() {
 		axios.get(baseURL, {
 			params: {
 				q: search,
 				category: category,
-				apiKey: ApiKey
+				apiKey: ApiKey,
 			}
 		}).then(response => {
       const arr = response.data.articles;
@@ -49,7 +43,6 @@ const CategoryNewsList = () => {
         item.category = category;
       });
       setArticles(arr);
-      console.log('arr2', arr);
       localStorage.setItem('articles', JSON.stringify(arr));
     }).catch(error => {
       setError(error.response.data.message);
@@ -57,57 +50,86 @@ const CategoryNewsList = () => {
 	}
 
 	useEffect(() => {
-		console.log('useEffect')
 		fetchData()
-	}, []);
+	}, [articles]);
 
 
 	category ? document.title = 'News | ' + category : document.title = 'News';
 
 	const handleSubmit = e => {
-		console.log('handleSubmit')
 		e.preventDefault()
 		fetchData()
 	}
 
-	const errorHandler = article => {
-		article.urlToImage = 'https://i.pinimg.com/564x/83/e3/6a/83e36a467c2f45e47df6861b898a7461.jpg'
-	}
 	if (error) {
 		return <div className="error">
-			<h2 className='erorr-text'>{error}</h2>
+			<p className='erorr-text'>{error}</p>
 		</div>;
 	} else if (articles) {
-		const items = articles.map((article, index) =>
-			<div key={index} className="article">
-				<Link className='article-link' to={"/news/" + index + "/" + search}><h2>{article.title}</h2></Link>
-				{/*<h2>{article.title}</h2>*/}
-				<p className='article-description'>{article.description}</p>
-				<div className='article-info'>
-					<div className='article-date'>{article.publishedAt}</div>
-					<div className='article-author'>{article.author}</div>
-				</div>
-				<img  className='article-img img-non' alt= {article.source.name}
-				      src= {article.urlToImage}
-				/>
-			</div>
-		);
+		const items = articles.map((article, index) => {
+			if (index > 9) {
+				return (
+						<div key={index} className="article">
+							<Link className='article-link' to={"/news/" + index + "/" + search}>{article.title}</Link>
+							<p>{article.description}</p>
+							<div className='article-info'>
+								<div className='article-date'>{article.publishedAt}</div>
+								<div className='article-author'>{article.author}</div>
+							</div>
+							<img alt= {article.source.name} src= {article.urlToImage}/>
+						</div>
+				)
+			}
+		});
+		const top_items = articles.map((article, index) => {
+			if (index < 4) {
+				return (
+						<div key={index} className="article">
+							<Link className='article-link' to={"/news/" + index + "/" + search}>{article.title}</Link>
+							<div className='article-info'>
+								<div className='article-date'>{article.publishedAt}</div>
+								<div className='article-author'>{article.author}</div>
+							</div>
+						</div>
+				)
+			}
+		});
+		const header_items = articles.map((article, index) => {
+			if (index > 4 && index < 9 ) {
+				return (
+						<div key={index} className="article">
+							<Link className='article-link' to={"/news/" + index + "/" + search}>{article.title}</Link>
+							<p className='article-description'>{article.description}</p>
+							<div className='article-info'>
+								<div className='article-date'>{article.publishedAt}</div>
+								<div className='article-author'>{article.author}</div>
+							</div>
+							<img alt= {article.source.name} src= {article.urlToImage}/>
+						</div>
+				)
+			}
+		});
 		return (
-			<div className='articles-wrapper'>
-				<div className="top"> Top headlines</div>
-				<form className='search-news' onSubmit={handleSubmit}>
-					<label className="search-label">
-						<input className='search-input'
-						       type="text"
-							value={search}
-							onChange={(e) => setSearch(e.target.value)}
-						/>
-					</label>
-					{/*<input className='search-btn' type="submit" value="Search"/>*/}
-				</form>
-				<h1 className='search-name'>{search}</h1>
-				<div className="articles">{items}</div>
-			</div>
+				<div className='articles-wrapper'>
+					<form className='search-news' onSubmit={handleSubmit}>
+						<label className="search-label">
+							<input className='search-input'
+										 type="text"
+										 value={search}
+										 onChange={(e) => setSearch(e.target.value)}
+							/>
+						</label>
+						<input className='search-btn' type="submit" value="Search"/>
+					</form>
+					<div className="articles">
+						<div className='header'>{header_items}</div>
+						<div className='top'>
+							<h2 className='title'>Top headlines</h2>
+							{top_items}
+						</div>
+						<div className='list'>{items}</div>
+					</div>
+				</div>
 		);
 	}
 }
